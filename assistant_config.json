@@ -1,0 +1,106 @@
+{
+  "name": "Travel Planner Assistant",
+  "description": "AI assistant for travel planning and recommendations",
+  "language": "en",
+  "learning_opt_out": false,
+  "intents": [
+    {
+      "intent": "travel_planning",
+      "examples": [
+        {"text": "I want to plan a trip"},
+        {"text": "Help me plan my vacation"},
+        {"text": "I need travel suggestions"},
+        {"text": "Create an itinerary for me"}
+      ]
+    },
+    {
+      "intent": "destination_info",
+      "examples": [
+        {"text": "Tell me about Paris"},
+        {"text": "What can I do in Tokyo"},
+        {"text": "Best places to visit in New York"},
+        {"text": "Tourist attractions in London"}
+      ]
+    },
+    {
+      "intent": "budget_planning",
+      "examples": [
+        {"text": "How much will my trip cost"},
+        {"text": "Calculate travel budget"},
+        {"text": "Estimate expenses for vacation"},
+        {"text": "What's the cost of traveling to Italy"}
+      ]
+    },
+    {
+      "intent": "accommodation",
+      "examples": [
+        {"text": "Find hotels in Paris"},
+        {"text": "Best places to stay"},
+        {"text": "Recommend accommodations"},
+        {"text": "Where should I book my hotel"}
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "entity": "destination",
+      "values": [
+        {
+          "value": "Paris",
+          "synonyms": ["paris", "france capital", "city of lights"]
+        },
+        {
+          "value": "Tokyo",
+          "synonyms": ["tokyo", "japan capital", "edo"]
+        },
+        {
+          "value": "New York",
+          "synonyms": ["nyc", "new york city", "big apple"]
+        }
+      ]
+    },
+    {
+      "entity": "duration",
+      "values": [
+        {
+          "value": "weekend",
+          "synonyms": ["2 days", "short trip", "quick getaway"]
+        },
+        {
+          "value": "week",
+          "synonyms": ["7 days", "one week", "weekly"]
+        },
+        {
+          "value": "month",
+          "synonyms": ["30 days", "monthly", "long trip"]
+        }
+      ]
+    }
+  ],
+  "dialog_nodes": [
+    {
+      "dialog_node": "Welcome",
+      "conditions": "welcome",
+      "output": {
+        "generic": [
+          {
+            "response_type": "text",
+            "text": "Hello! I'm your AI Travel Planner. I can help you plan trips, suggest destinations, create itineraries, and estimate budgets. What kind of trip are you planning?"
+          }
+        ]
+      }
+    },
+    {
+      "dialog_node": "Travel Planning",
+      "conditions": "#travel_planning",
+      "output": {
+        "generic": [
+          {
+            "response_type": "text",
+            "text": "I'd love to help you plan your trip! Could you tell me:\n1. Where would you like to go?\n2. How long is your trip?\n3. What's your budget range?\n4. What activities interest you most?"
+          }
+        ]
+      }
+    }
+  ]
+}
